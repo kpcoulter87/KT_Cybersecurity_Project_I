@@ -1,0 +1,43 @@
+---
+- name: Configure Elk VM with Docker
+  hosts: elk
+  remote_user: KTazureuser
+  become: true
+  tasks:
+    - name: set vm.max_map_count to 262144 in sysctl
+      sysctl: name={{ item.key }} value={{ item.value}}
+      with_items:
+        - { key: "vm.max_map_count", value: "262144" }
+    # Docker
+    - name: Install docker.io
+      apt:
+        update_cache: yes
+        force_apt_get: yes
+        name: docker.io
+        state: present
+      # python
+    - name: Install python3-pip
+      apt:
+        name: python3-pip
+        state: present
+      # Docker python
+    - name: Install Docker python package
+      pip:
+        name: docker
+        state: present
+      # Launch container
+    - name: download and launch a docker elk container
+      docker_container:
+        name: elk
+        image: sebp/elk:761
+        state: started
+        restart_policy: always
+        published_ports:
+          -  5601:5601
+          -  9200:9200
+          -  5044:5044
+      # Start docker
+    - name: Enable service docker on boot
+      systemd:
+        name: docker
+        enabled: yes
