@@ -1,0 +1,38 @@
+---
+- name: installing and launching metricbeat
+  hosts: webservers
+  become: yes
+  tasks:
+ # Use command module
+  - name: Increase virtual memory
+    command: sysctl -w vm.max_map_count=262144
+# Use shell module
+  - name: Increase virtual memory on restart
+    shell: echo "vm.max_map_count=262144" >> /etc/sysctl.conf
+#download metricbeat deb file
+  - name: download metricbeat deb
+    command: curl -L -O https://artifacts.elastic.co/downloads/beats/metricbeat/metricbeat-7.4.0-amd64.deb
+#install metricbeat
+  - name: install metricbeat deb
+    command: dpkg -i metricbeat-7.4.0-amd64.deb
+#copy metricbeat config file from ansible to web vm
+  - name: drop in metricbeat.yml
+    copy:
+      src: /etc/ansible/files/metricbeat-config.yml
+      dest: /etc/metricbeat/metricbeat.yml
+#command enable docker
+  - name: enable and configure docker
+    command: metricbeat modules enable docker
+#command setup
+  - name: setup metricbeat
+    command: metricbeat setup
+#command metricbeat -e
+  - name: metricbeat -e
+    command: metricbeat -e
+#enable metricbeat on boot
+  - name: enable service metricbeat on boot
+    systemd:
+      name: metricbeat
+      enabled: yes
+      masked: no
+      restart_policy: always
