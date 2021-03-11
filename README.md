@@ -144,11 +144,14 @@ SSH into the control node and follow the steps below:
     password: "changeme"
     
     - setup.kibana:
-    
     host: "10.1.0.4:5601"
 
 - Which URL do you navigate to in order to check that the ELK server is running? http://104.208.219.176:5601/app/kibana/ (http://{elk-vm IP}:5601/app/kibana)
 
 
 The specific commands the user will need to run to download the playbook, update the files, etc:
-  -Download playbook: ansible-playbook elk-playbook
+  
+  - Download playbook: ansible-playbook elk-playbook
+  - Create and update Playbook: nano elk-playbook
+  - Update hosts file: nano /etc/ansible/hosts
+  - Update filebeat config file: nano /etc/filebeat/filebeat-config.yml
