@@ -3,11 +3,11 @@
 
 The files in this repository were used to configure the network depicted below.
 
-[ELK Stack Deployment Network Diagram] KT_Cybersecurity_Project_I/ELK VM.pdf
+[ELK Stack Deployment Network Diagram] (https://github.com/kpcoulter87/KT_Cybersecurity_Project_I/blob/main/Diagrams/ELK%20VM.pdf)
 
 These files have been tested and used to generate a live ELK deployment on Azure. They can be used to recreate the entire deployment pictured above. Select portions of the Ansible file may be used to install only certain pieces of it, such as Filebeat.
 
-  - _TODO: Enter the playbook file._
+[ELK Stack Deployment Ansible Playbook] (https://github.com/kpcoulter87/KT_Cybersecurity_Project_I/blob/main/Ansible/elk-playbook)
 
 This document contains the following details:
 - Description of the Topology
@@ -47,24 +47,14 @@ Only the jumpbox machine can accept connections from the Internet. Access to thi
 Machines within the network can only be accessed by the Jump Box gateway 10.0.0.4
 
 A summary of the access policies in place can be found in the table below.
-Name
-Publicly Accessible
-Allowed IP Address
-Jumpbox
-yes
-72.94.151.52
-Web 1
-No
-72.94.151.52
-Web 2
 
-
-72.94.151.52
-Web 3
-
-
-72.94.151.52
-ELK VM
+| Name     | Publicly Accessible | Allowed IP Addresses        |
+|----------|---------------------|-----------------------------|
+| Jump Box | Yes (SSH)           | 72.                 |
+| Web-1    | NO                  | 10.0.0.4, 10.0.0.6, 10.0.0.7|
+| Web-2    | NO                  | 10.0.0.4, 10.0.0.5, 10.0.0.7|
+| Web-3    | NO                  | 10.0.0.4, 10.0.0.5, 10.0.0.6|
+| ELK      | YES(HTTP)           | Personal IP, 10.0.0.4       |
 
 
 ### Elk Configuration
