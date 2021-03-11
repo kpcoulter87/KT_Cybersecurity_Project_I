@@ -139,10 +139,13 @@ SSH into the control node and follow the steps below:
 
 - How do I specify which machine to install the ELK server on versus which to install Filebeat on? Navigate to the filebeat configuration file /etc/filebeat/filebeat-config.yml and edit it in 'output.elasticsearch' to update the IP address to the correct machine and under 'setup.kibana:' also add the IP of the machine you want to install filebeat on.
     - output.elasticsearch:
+
 hosts: ["10.1.0.4:9200"]
+
 username: "elastic"
 password: "changeme"
     - setup.kibana:
+
 host: "10.1.0.4:5601"
 
 - Which URL do you navigate to in order to check that the ELK server is running? http://104.208.219.176:5601/app/kibana/ (http://{elk-vm IP}:5601/app/kibana)
