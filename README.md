@@ -94,13 +94,13 @@ In order to use the playbook, you will need to have an Ansible control node alre
 
 SSH into the control node and follow the steps below:
 - Copy the _____ file to _____.
-- Update the host file to include the IP address of the new Virtual Machine
+- Update the host file to include the IP address of the new Virtual Machine. Specify 
 - Run the playbook, and navigate to kibana to check that the installation worked as expected.
 
 _TODO: Answer the following questions to fill in the blanks:_
 - _Which file is the playbook? KT_Cybersecurity_Project_I/Ansible/elk-playbook Where do you copy it? Copy it to 
 - _Which file do you update to make Ansible run the playbook on a specific machine? How do I specify which machine to install the ELK server on versus which to install Filebeat on?_
-- _Which URL do you navigate to in order to check that the ELK server is running?
+- _Which URL do you navigate to in order to check that the ELK server is running? http://104.208.219.176:5601/app/kibana/ (http://{elk-vm IP}:5601/app/kibana)
 
-_As a **Bonus**, provide the specific commands the user will need to run to download the playbook, update the files, etc.
-Download playbook: ansible-playbook <playbook_name>
+The specific commands the user will need to run to download the playbook, update the files, etc:
+Download playbook: ansible-playbook elk-playbook
