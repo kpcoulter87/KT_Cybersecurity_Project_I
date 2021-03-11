@@ -1,0 +1,57 @@
+ELK Project
+
+This readme refers to this file: [ELK Stack Deployment Ansible Playbook] (https://github.com/kpcoulter87/KT_Cybersecurity_Project_I/blob/main/Ansible/elk-playbook)
+
+The purpose of this playbook is to configure an ELK virtual machine on Azure with a Docker container.
+
+  - name: Configure Elk VM with Docker
+  hosts: elk
+  remote_user: KTazureuser
+  become: true
+  
+Playbook Explanation:
+
+Updates memory in order to create space to run the docker container.
+  tasks:
+    - name: set vm.max_map_count to 262144 in sysctl
+      sysctl: name={{ item.key }} value={{ item.value}}
+      with_items:
+        - { key: "vm.max_map_count", value: "262144" }
+        
+Installs docker
+   - name: Install docker.io
+      apt:
+        update_cache: yes
+        force_apt_get: yes
+        name: docker.io
+        state: present
+        
+Installs python3-php 
+  - name: Install python3-pip
+      apt:
+        name: python3-pip
+        state: present
+        
+Installs the docker python package
+  - name: Install Docker python package
+      pip:
+        name: docker
+        state: present
+        
+Launch the docker container that was created in previous step
+    - name: download and launch a docker elk container
+      docker_container:
+        name: elk
+        image: sebp/elk:761
+        state: started
+        restart_policy: always
+        published_ports:
+          -  5601:5601
+          -  9200:9200
+          -  5044:5044
+          
+ Enable docker to start on boot up
+    - name: Enable service docker on boot
+      systemd:
+        name: docker
+        enabled: yes
