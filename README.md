@@ -36,6 +36,7 @@ The configuration details of each machine may be found below.
 | Web-2	   |   VM     | 10.0.0.6   |   Linux          |
 | Web-3	   |   VM     | 10.0.0.7   |   Linux          |
 | elk-vm	 |   ELK    | 10.1.0.4   |   Linux          |
+| Red-Team_LB |Load Balancer |52.136.125.39 |   N/A          |
 
 ### Access Policies
 
@@ -55,7 +56,7 @@ A summary of the access policies in place can be found in the table below.
 | Web-2    | NO                  | 10.0.0.4|
 | Web-3    | NO                  | 10.0.0.4,|
 | ELK      | YES(HTTP)           | (personal IP), 10.0.0.4       |
-
+| ELK      | YES(HTTP)           | (personal IP), 10.0.0.4       |
 
 ### Elk Configuration
 
