@@ -1,0 +1,29 @@
+<snippet>
+  <content><![CDATA[
+# ${1:Metricbeat Playbook for ELK Stack}
+This readme file refers to [Install and Launch Flebeat] (https://github.com/kpcoulter87/KT_Cybersecurity_Project_I/blob/main/Ansible/metricbeat-playbook.yml)
+
+## Installation
+The purpose of this file is to install and launch metricbeat for ELK stack to view in kibana
+- name: installing and launching metricbeat
+  hosts: webservers
+  become: yes
+  tasks:
+  
+## Usage
+TODO: Write usage instructions
+## Contributing
+1. Fork it!
+2. Create your feature branch: `git checkout -b my-new-feature`
+3. Commit your changes: `git commit -am 'Add some feature'`
+4. Push to the branch: `git push origin my-new-feature`
+5. Submit a pull request :D
+## History
+TODO: Write history
+## Credits
+TODO: Write credits
+## License
+TODO: Write license
+]]></content>
+  <tabTrigger>readme</tabTrigger>
+</snippet>
