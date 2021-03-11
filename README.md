@@ -70,8 +70,9 @@ The playbook implements the following tasks:
 - Enable Docker service on boot
 
 The following screenshot displays the result of running `docker ps` after successfully configuring the ELK instance.
+![image](https://user-images.githubusercontent.com/79668665/110838761-d8317500-8270-11eb-8c25-e67b8ff83c95.png)
 
-![TODO: Update the path with the name of your screenshot of docker ps output](Images/docker_ps_output.png)
+(https://github.com/kpcoulter87/KT_Cybersecurity_Project_I/blob/main/Ansible/docker%20ps%20screenshot%20after%20elk.PNG)
 
 ### Target Machines & Beats
 This ELK server is configured to monitor the following machines:
