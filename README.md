@@ -80,9 +80,10 @@ Web2- 10.0.0.6
 Web3- 10.0.0.7
 
 We have installed the following Beats on these machines:
-- Filebeat
-- Metricbeat
-
+- Filebeat [Filebeat Installation Playbook] (https://github.com/kpcoulter87/KT_Cybersecurity_Project_I/blob/main/Ansible/filebeat-playbook.yml)
+   -[Filebeat README] (https://github.com/kpcoulter87/KT_Cybersecurity_Project_I/blob/main/Ansible/README_filebeat-playbook)
+- Metricbeat [Metricbeat Installation Playbook] (https://github.com/kpcoulter87/KT_Cybersecurity_Project_I/blob/main/Ansible/metricbeat-playbook.yml)
+  -[Metricbeat README] ()
 These Beats allow us to collect the following information from each machine:
 -Filebeat: This collects data from the file system, enabling analysts to monitor files for suspicious changes. 
   -ex. Filebeat collects log data from machines the analyst can check for suspicious activity
@@ -93,9 +94,25 @@ These Beats allow us to collect the following information from each machine:
 In order to use the playbook, you will need to have an Ansible control node already configured. Assuming you have such a control node provisioned:
 
 SSH into the control node and follow the steps below:
-- Copy the _____ file to _____.
-- Update the host file to include the IP address of the new Virtual Machine. Specify 
-- Run the playbook, and navigate to kibana to check that the installation worked as expected.
+- Copy the elk-playbook file to _____.
+- Update the hosts file (/etc/ansible/hosts) to include the IP address of the new ELK stack Virtual Machine. 
+- Edit the hosts file to make sure the IP addresses of your web VMs are in the category [webservers] and add an additional group belwo called [elk] to differentiate between the web vms and the elk vm. 
+
+Here is what the output should look like: 
+ [webservers]
+## alpha.example.org
+## beta.example.org
+## 192.168.1.100
+## 192.168.1.110
+10.0.0.5 ansible_python_interpreter=/usr/bin/python3
+10.0.0.6 ansible_python_interpreter=/usr/bin/python3
+10.0.0.7 ansible_python_interpreter=/usr/bin/python3
+
+ [elk]
+10.1.0.4 ansible_python_interpreter=/usr/bin/python3
+
+-Save the updated hosts file. 
+-Run the playbook, and navigate to kibana to check that the installation worked as expected.
 
 _TODO: Answer the following questions to fill in the blanks:_
 - _Which file is the playbook? KT_Cybersecurity_Project_I/Ansible/elk-playbook Where do you copy it? Copy it to 
