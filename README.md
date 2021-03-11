@@ -76,30 +76,45 @@ The following screenshot displays the result of running `docker ps` after succes
 
 ### Target Machines & Beats
 This ELK server is configured to monitor the following machines:
-Web1- 10.0.0.5
-Web2- 10.0.0.6
-Web3- 10.0.0.7
+
+-Web1- 10.0.0.5
+-Web2- 10.0.0.6
+-Web3- 10.0.0.7
 
 We have installed the following Beats on these machines:
+
 - Filebeat [Filebeat Installation Playbook] (https://github.com/kpcoulter87/KT_Cybersecurity_Project_I/blob/main/Ansible/filebeat-playbook.yml)
+
    -[Filebeat README] (https://github.com/kpcoulter87/KT_Cybersecurity_Project_I/blob/main/Ansible/README_filebeat-playbook)
+   
+   
 - Metricbeat [Metricbeat Installation Playbook] (https://github.com/kpcoulter87/KT_Cybersecurity_Project_I/blob/main/Ansible/metricbeat-playbook.yml)
+  
   -[Metricbeat README] ()
+  
+  
 These Beats allow us to collect the following information from each machine:
+
 -Filebeat: This collects data from the file system, enabling analysts to monitor files for suspicious changes. 
-  -ex. Filebeat collects log data from machines the analyst can check for suspicious activity
+ 
+ -ex. Filebeat collects log data from machines the analyst can check for suspicious activity
+
+
 -Metricbeat: This collects metrics from the operating system and from services running on the server. 
+  
   -ex. Metricbeat can measure the uptime (how long a machine has been on) of machines. 
+  
 
 ### Using the Playbook
 In order to use the playbook, you will need to have an Ansible control node already configured. Assuming you have such a control node provisioned:
 
 SSH into the control node and follow the steps below:
-- Copy the elk-playbook file to _____.
+- Copy the elk-playbook file to /etc/ansible/ 
 - Update the hosts file (/etc/ansible/hosts) to include the IP address of the new ELK stack Virtual Machine. 
 - Edit the hosts file to make sure the IP addresses of your web VMs are in the category [webservers] and add an additional group below called [elk] to differentiate between the web vms and the elk vm. Then make sure to add the below python script. 
 
 Here is what the output should look like: 
+
  [webservers]
 10.0.0.5 ansible_python_interpreter=/usr/bin/python3
 10.0.0.6 ansible_python_interpreter=/usr/bin/python3
