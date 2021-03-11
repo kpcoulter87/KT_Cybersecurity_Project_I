@@ -1,6 +1,5 @@
-<snippet>
-  <content><![CDATA[
-# ${1:Metricbeat Playbook for ELK Stack}
+**Metricbeat Playbook for ELK Stack** 
+
 This readme file refers to [Install and Launch Flebeat] (https://github.com/kpcoulter87/KT_Cybersecurity_Project_I/blob/main/Ansible/metricbeat-playbook.yml)
 
 ## Installation
@@ -11,19 +10,45 @@ The purpose of this file is to install and launch metricbeat for ELK stack to vi
   tasks:
   
 ## Usage
-TODO: Write usage instructions
-## Contributing
-1. Fork it!
-2. Create your feature branch: `git checkout -b my-new-feature`
-3. Commit your changes: `git commit -am 'Add some feature'`
-4. Push to the branch: `git push origin my-new-feature`
-5. Submit a pull request :D
-## History
-TODO: Write history
-## Credits
-TODO: Write credits
-## License
-TODO: Write license
-]]></content>
-  <tabTrigger>readme</tabTrigger>
-</snippet>
+
+Increase virtual memory to ensure there is enough for metricbeat
+  - name: Increase virtual memory
+    command: sysctl -w vm.max_map_count=262144
+
+# Use shell module
+  - name: Increase virtual memory on restart
+    shell: echo "vm.max_map_count=262144" >> /etc/sysctl.conf
+
+download the metricbeat deb file from the internet
+  - name: download metricbeat deb
+    command: curl -L -O https://artifacts.elastic.co/downloads/beats/metricbeat/metricbeat-7.4.0-amd64.deb
+
+Install metricbeat using deb file downloaded from internet
+  - name: install metricbeat deb
+    command: dpkg -i metricbeat-7.4.0-amd64.deb
+
+Copy metricbeat config file from ansible to web vm
+  - name: drop in metricbeat.yml
+    copy:
+      src: /etc/ansible/files/metricbeat-config.yml
+      dest: /etc/metricbeat/metricbeat.yml
+
+Enable docker with metricbeat
+  - name: enable and configure docker
+    command: metricbeat modules enable docker
+
+setup docker with metricbeat
+  - name: setup metricbeat
+    command: metricbeat setup
+
+command metricbeat -e
+  - name: metricbeat -e
+    command: metricbeat -e
+
+Enable metricbeat to start up on boot
+  - name: enable service metricbeat on boot
+    systemd:
+      name: metricbeat
+      enabled: yes
+      masked: no
+      restart_policy: always
