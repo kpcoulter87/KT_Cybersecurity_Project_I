@@ -85,23 +85,24 @@ This ELK server is configured to monitor the following machines:
 
 We have installed the following Beats on these machines:
 
-#- Filebeat [Filebeat Installation Playbook] (https://github.com/kpcoulter87/KT_Cybersecurity_Project_I/blob/main/Ansible/filebeat-playbook.yml)
+- Filebeat [Filebeat Installation Playbook] (https://github.com/kpcoulter87/KT_Cybersecurity_Project_I/blob/main/Ansible/filebeat-playbook.yml)
 
-   -[Filebeat README] (https://github.com/kpcoulter87/KT_Cybersecurity_Project_I/blob/main/Ansible/README_filebeat-playbook)
+      -[Filebeat README] (https://github.com/kpcoulter87/KT_Cybersecurity_Project_I/blob/main/Ansible/README_filebeat-playbook)
    
    
-#- Metricbeat [Metricbeat Installation Playbook] (https://github.com/kpcoulter87/KT_Cybersecurity_Project_I/blob/main/Ansible/metricbeat-playbook.yml)
+- Metricbeat [Metricbeat Installation Playbook] (https://github.com/kpcoulter87/KT_Cybersecurity_Project_I/blob/main/Ansible/metricbeat-playbook.yml)
   
-  -[Metricbeat README] ()
+      -[Metricbeat README] ()
   
   
+
 These Beats allow us to collect the following information from each machine:
 
--Filebeat: This collects data from the file system, enabling analysts to monitor files for suspicious changes. 
+-#Filebeat: This collects data from the file system, enabling analysts to monitor files for suspicious changes. 
   -ex. Filebeat collects log data from machines the analyst can check for suspicious activity
 
 
--Metricbeat: This collects metrics from the operating system and from services running on the server. 
+-#Metricbeat: This collects metrics from the operating system and from services running on the server. 
   -ex. Metricbeat can measure the uptime (how long a machine has been on) of machines. 
   
 
