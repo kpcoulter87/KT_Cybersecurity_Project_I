@@ -51,9 +51,9 @@ A summary of the access policies in place can be found in the table below.
 | Name     | Publicly Accessible | Allowed IP Addresses        |
 |----------|---------------------|-----------------------------|
 | Jump Box | Yes (SSH)           | (personal IP)                 |
-| Web-1    | NO                  | 10.0.0.4, 10.0.0.6, 10.0.0.7|
-| Web-2    | NO                  | 10.0.0.4, 10.0.0.5, 10.0.0.7|
-| Web-3    | NO                  | 10.0.0.4, 10.0.0.5, 10.0.0.6|
+| Web-1    | NO                  | 10.0.0.4|
+| Web-2    | NO                  | 10.0.0.4|
+| Web-3    | NO                  | 10.0.0.4,|
 | ELK      | YES(HTTP)           | (personal IP), 10.0.0.4       |
 
 
