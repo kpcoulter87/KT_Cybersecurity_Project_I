@@ -1,0 +1,42 @@
+Installing filebeat on your ELK stack
+
+This readme refers to this file: [Install and Launch Filebeat] (https://github.com/kpcoulter87/KT_Cybersecurity_Project_I/blob/main/Ansible/filebeat-playbook.yml) 
+
+The purpose of this playbook is to install and launch filebeat for ELK stakc to view in kibana
+- name: installing and launching filebeat
+  hosts: webservers
+  become: yes
+  tasks:
+  
+Download the deb file from the internet
+  - name: download filebeat deb
+    command: curl -L -O https://artifacts.elastic.co/downloads/beats/filebeat/filebeat-7.4.0-amd64.deb
+
+Install filebeat using .deb file downlaoded in previous step
+  - name: install filebeat deb
+    command: dpkg -i filebeat-7.4.0-amd64.deb
+    
+Copy filebeat config file from ansible to your web vms
+  - name: drop in filebeat.yml
+    copy:
+      src: /etc/ansible/files/filebeat-config.yml
+      dest: /etc/filebeat/filebeat.yml
+      
+Command enable and configure 
+  - name: enable and configure system module
+    command: filebeat modules enable system
+
+Command setup filebeat
+  - name: setup filebeat
+    command: filebeat setup
+
+command start filebeat
+  - name: Start filebeat service
+    command: service filebeat start
+    
+enable filebeat on boot 
+  - name: enable service filebeat on boot
+    systemd:
+      name: filebeat
+      enabled: yes
+      masked: no
