@@ -85,12 +85,12 @@ This ELK server is configured to monitor the following machines:
 
 We have installed the following Beats on these machines:
 
-- Filebeat [Filebeat Installation Playbook] (https://github.com/kpcoulter87/KT_Cybersecurity_Project_I/blob/main/Ansible/filebeat-playbook.yml)
+#- Filebeat [Filebeat Installation Playbook] (https://github.com/kpcoulter87/KT_Cybersecurity_Project_I/blob/main/Ansible/filebeat-playbook.yml)
 
    -[Filebeat README] (https://github.com/kpcoulter87/KT_Cybersecurity_Project_I/blob/main/Ansible/README_filebeat-playbook)
    
    
-- Metricbeat [Metricbeat Installation Playbook] (https://github.com/kpcoulter87/KT_Cybersecurity_Project_I/blob/main/Ansible/metricbeat-playbook.yml)
+#- Metricbeat [Metricbeat Installation Playbook] (https://github.com/kpcoulter87/KT_Cybersecurity_Project_I/blob/main/Ansible/metricbeat-playbook.yml)
   
   -[Metricbeat README] ()
   
