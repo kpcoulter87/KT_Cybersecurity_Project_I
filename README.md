@@ -84,10 +84,10 @@ We have installed the following Beats on these machines:
 - Metricbeat
 
 These Beats allow us to collect the following information from each machine:
--Filebeat: This collects and monitors log data from each machine and collects log events
-  -ex. 
+-Filebeat: This collects data from the file system, enabling analysts to monitor files for suspicious changes. 
+  -ex. Filebeat collects log data from machines the analyst can check for suspicious activity
 -Metricbeat: This collects metrics from the operating system and from services running on the server. 
-  -ex. 
+  -ex. Metricbeat can measure the uptime (how long a machine has been on) of machines. 
 
 ### Using the Playbook
 In order to use the playbook, you will need to have an Ansible control node already configured. Assuming you have such a control node provisioned:
