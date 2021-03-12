@@ -1,0 +1,8 @@
+This folder contains 2 network diagrams
+
+The first is HW 12 Final.pdf
+This outlines a network that goes through a jumpbox and ssh into the 3 web vms
+These are sent through a load balancer to keep the network flexible
+
+The second is the ELK stack deployed on the web vms 
+This diagram is the same as HW 12 with an additional ELK VM accessed through the jumpbox via ssh in a different virtual network
