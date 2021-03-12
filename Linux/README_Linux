@@ -6,15 +6,15 @@ IP_Lookup.sh
 
 Log_analysis.sh
 
-o
-README_Linux
-
 
 arguments.sh
 
 
 for_loops.sh
-
+Lists 5 of your favorite U.S. states (e.g. Nebraska, Hawaii, California, Texas, Washington) 
+Creates a directory called research, add a quick system audit script, creates for loop that hat checks for the state 'Hawaii' in your list of states. If the 'Hawaii' is there, print "Hawaii is the best!". If is not there, print "I'm not fond of Hawaii"
+Creates a `for` loop that prints out each item in your variable that holds the output of the `ls` command
+Creates a for loop to print out execs on one line for each entry
 
 roulette_dealer_by_time.sh
 
