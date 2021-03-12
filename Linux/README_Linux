@@ -2,13 +2,22 @@ The Linux folder in this project contains bash scripts for several functions.
 
 
 IP_Lookup.sh
-
+Looks up the country each IP address is based in
 
 Log_analysis.sh
-
+Analyzes logs and outputs access denies requests to a file
 
 arguments.sh
-
+A quick setup script for a new server
+specify an output file
+run the script as root
+create a log file header
+list all packages needed on the new server
+create sysadmin user qwith no password
+add sysadmin to sudo group
+Remove roots login shell and lock the root account
+change permissions on /etc/shadow, gshadow, group and passwd
+setup and scripts folder and add to .bashrc and add custom aliases 
 
 for_loops.sh
 Lists 5 of your favorite U.S. states (e.g. Nebraska, Hawaii, California, Texas, Washington) 
@@ -17,11 +26,16 @@ Creates a `for` loop that prints out each item in your variable that holds the o
 Creates a for loop to print out execs on one line for each entry
 
 roulette_dealer_by_time.sh
-
+Finds out which roulette dealer was present at a specific time 
 
 sys_info.sh
-
-
-sysinfo.sh
+This nis a quick system audit script
+Creates a ~/research directory to your script
+Finds top 10 processes and outputs to file
 
 sys_info2.sh
+Run script as root 
+Put the paths of the shadow and passwd files (from the /etc directory) in a list
+Creates a for loop that prints outs the permissions of each file in your file list.
+Creates a for loop that checks the sudo abilities of each user who has a home directory
+Creates a list that contains the commands date,  uname -a, and hostname -s
